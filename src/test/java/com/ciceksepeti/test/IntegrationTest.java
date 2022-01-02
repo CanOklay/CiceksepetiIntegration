@@ -9,21 +9,21 @@ import static com.ciceksepeti.constants.Constants.*;
 
 public class IntegrationTest extends InstallmentTest {
 
-    @Test(testName = "Installment=0 değerine göre dönen sonuçların kontrol edilmesi")
+    @Test(testName = "Check values according to Installment=0 path")
     public void installmentZeroTest() throws IOException {
         shouldCheckInstallment(URL_INSTALLMENT_0);
         shouldCheckInstallmentText(URL_INSTALLMENT_0);
         shouldCheckProductGroupId(URL_INSTALLMENT_0);
     }
 
-    @Test(testName = "Installment=1 değerine göre dönen sonuçların kontrol edilmesi")
+    @Test(testName = "Check values according to Installment=1 path")
     public void installmentOneTest() throws IOException {
         shouldCheckInstallment(URL_INSTALLMENT_1);
         shouldCheckInstallmentText(URL_INSTALLMENT_1);
         shouldCheckProductGroupId(URL_INSTALLMENT_1);
     }
 
-    @Test(testName = "Installment=null değerine göre dönen sonuçların kontrol edilmesi")
+    @Test(testName = "Check values according to Installment=null path")
     public void installmentNullTest() throws IOException {
         shouldReturnNull(URL_INSTALLMENT_NULL);
     }
