@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suiste SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Vigo">
+<suite name="Ciceksepeti">
     <listeners>
         <listener class-name="com.ciceksepeti.listener.ExtentReporterNG"/>
     </listeners>
-    <test name="Regression">
+    <test name="Integration Test">
         <classes>
             <class name="com.ciceksepeti.test.IntegrationTest"/>
         </classes>
