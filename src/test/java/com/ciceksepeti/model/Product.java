@@ -2,11 +2,16 @@ package com.ciceksepeti.model;
 
 public class Product {
 
-    private String installment;
+    private boolean installment;
     private String installmentText;
     private String productGroupId;
+    private String name;
 
-    public String getInstallment() {
+    public String getName() {
+        return name;
+    }
+
+    public boolean getInstallment() {
         return installment;
     }
 

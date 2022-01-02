@@ -12,9 +12,8 @@ import org.testng.Assert;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
-import static com.ciceksepeti.constants.Constants.URL;
+import static com.ciceksepeti.constants.Constants.*;
 
 public class Service {
 
@@ -70,19 +69,56 @@ public class Service {
     }
 
     public void checkInstallment() {
-        List<Product> products = getProducts();
-        products.parallelStream().forEach(product -> product.getInstallment().equals(true));
-        logger.info("Bütün ürünlerin taksit seçeneği var.");
-        /*for (int i=0; i<products.size(); i++) {
-            if (products.get(i).equals())
-        }*/
+        try {
+            List<Product> products = getProducts();
+            for (Product product : products) {
+                boolean productInstallment = product.getInstallment();
+                if (productInstallment) {
+                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
+                } else {
+                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Kontrol başarısız!");
+            Assert.fail();
+        }
     }
 
     public void checkInstallmentText() {
-
+        try {
+            List<Product> products = getProducts();
+            for (Product product : products) {
+                String  productInstallmentText = product.getInstallmentText();
+                if (productInstallmentText.contains(EXPECTED_INSTALLMENT_TEXT)) {
+                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
+                } else {
+                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Kontrol başarısız!");
+            Assert.fail();
+        }
     }
 
     public void checkProductGroupId() {
-
+        try {
+            List<Product> products = getProducts();
+            for (Product product : products) {
+                String productGroupId = product.getProductGroupId();
+                if (productGroupId.equals("1")) {
+                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
+                } else {
+                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Kontrol başarısız!");
+            Assert.fail();
+        }
     }
 }
