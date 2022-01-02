@@ -7,16 +7,16 @@ public class IntegrationTest extends Service {
 
     @Test(testName = "Installment değerine göre dönen sonuçların kontrol edilmesi")
     public void installmentTest() {
-        getProducts();
+        checkInstallment();
     }
 
     @Test(testName = "InstallmentText değerine göre dönen sonuçların kontrol edilmesi")
     public void installmentTextTest() {
-
+        checkInstallmentText();
     }
 
     @Test(testName = "ProductGroupId değerine göre dönen sonuçların kontrol edilmesi")
     public void productGroupIdTest() {
-
+        checkProductGroupId();
     }
 }
