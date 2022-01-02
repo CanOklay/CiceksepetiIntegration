@@ -1,7 +1,5 @@
 package com.ciceksepeti.model;
 
-import java.util.List;
-
 public class Response {
 
     private Error error;

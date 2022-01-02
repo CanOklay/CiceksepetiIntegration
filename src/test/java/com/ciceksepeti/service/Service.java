@@ -37,13 +37,9 @@ public class Service {
             Assert.assertNotNull(response.body());
             String responseText = Objects.requireNonNull(response.body()).string();
             logger.info("Response: " + responseText);
-            try {
-                if (response.code() == 500) {
-                    logger.info("Response code: " + response.code());
-                    logger.info("Installment değeri null gelmiştir!");
-                }
-            } catch (Exception e) {
-                logger.error(e.getMessage());
+            if (response.code() == 500) {
+                logger.info("Response code: " + response.code());
+                Assert.fail("Installment değeri null geldi!");
             }
             return responseText;
         } catch (Exception e) {
@@ -66,59 +62,5 @@ public class Service {
             Assert.fail();
         }
         return null;
-    }
-
-    public void checkInstallment() {
-        try {
-            List<Product> products = getProducts();
-            for (Product product : products) {
-                boolean productInstallment = product.getInstallment();
-                if (productInstallment) {
-                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
-                } else {
-                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
-                }
-            }
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            logger.info("Kontrol başarısız!");
-            Assert.fail();
-        }
-    }
-
-    public void checkInstallmentText() {
-        try {
-            List<Product> products = getProducts();
-            for (Product product : products) {
-                String  productInstallmentText = product.getInstallmentText();
-                if (productInstallmentText.contains(EXPECTED_INSTALLMENT_TEXT)) {
-                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
-                } else {
-                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
-                }
-            }
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            logger.info("Kontrol başarısız!");
-            Assert.fail();
-        }
-    }
-
-    public void checkProductGroupId() {
-        try {
-            List<Product> products = getProducts();
-            for (Product product : products) {
-                String productGroupId = product.getProductGroupId();
-                if (productGroupId.equals("1")) {
-                    logger.info("Bu üründe taksit seçeneği bulunuyor: " + product.getName());
-                } else {
-                    logger.info("Taksit seçeneği bulunmayan ürün: " + product.getName());
-                }
-            }
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            logger.info("Kontrol başarısız!");
-            Assert.fail();
-        }
     }
 }
