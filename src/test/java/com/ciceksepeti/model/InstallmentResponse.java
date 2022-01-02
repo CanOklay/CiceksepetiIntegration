@@ -1,6 +1,6 @@
 package com.ciceksepeti.model;
 
-public class Response {
+public class InstallmentResponse {
 
     private Error error;
     private Result result;
