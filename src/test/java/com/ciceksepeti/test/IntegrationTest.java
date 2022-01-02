@@ -7,7 +7,7 @@ public class IntegrationTest extends Service {
 
     @Test(testName = "Installment değerine göre dönen sonuçların kontrol edilmesi")
     public void installmentTest() {
-        getProducts();
+        checkInstallment();
     }
 
     @Test(testName = "InstallmentText değerine göre dönen sonuçların kontrol edilmesi")

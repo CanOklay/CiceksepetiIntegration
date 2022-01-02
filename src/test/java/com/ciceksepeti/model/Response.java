@@ -4,24 +4,14 @@ import java.util.List;
 
 public class Response {
 
-    private List<String> products;
-    private String productGroupId;
-    private String installmentText;
-    private boolean installment;
+    private Error error;
+    private Result result;
 
-    public List<String> getProducts() {
-        return products;
+    public Error getError() {
+        return error;
     }
 
-    public String getProductGroupId() {
-        return productGroupId;
-    }
-
-    public String getInstallmentText() {
-        return installmentText;
-    }
-
-    public boolean getInstallment() {
-        return installment;
+    public Result getResult() {
+        return result;
     }
 }
