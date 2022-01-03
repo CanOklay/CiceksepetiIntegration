@@ -41,8 +41,8 @@ public class InstallmentTest extends BaseTest {
         InstallmentResponse installmentResponse = getFromJson(response.body().string());
         List<Product> products = installmentResponse.getResult().getData().getProducts();
         for (Product product : products) {
-            String productInstallmentText = product.getProductGroupId();
-            Assert.assertEquals(productInstallmentText, "1", "Bu üründe taksit seçeneği bulunuyor: " + product.getName());
+            String productGroupId = product.getProductGroupId();
+            Assert.assertEquals(productGroupId, "1", "Bu üründe taksit seçeneği bulunuyor: " + product.getName());
         }
     }
 
